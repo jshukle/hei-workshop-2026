@@ -1,0 +1,6 @@
+export(create_hei_gridded)
+export(get_hei_palette)
+export(SOGA2025_country_boundaries_simplified)
+export(SOGA2025_disputed_boundaries)
+export(SOGA2025_global_boundary)
+

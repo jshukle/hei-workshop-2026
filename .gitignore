@@ -1,0 +1,9 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+workshop/output/*
+!workshop/output/.gitkeep
+renv/library/
+renv/staging/
+renv/python/

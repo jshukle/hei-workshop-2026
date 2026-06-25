@@ -1,0 +1,18 @@
+Package: HEIutilities
+Title: HEI Workshop Mapping Utilities
+Version: 0.0.0.9000
+Authors@R: person("Health Effects Institute", role = c("aut", "cph"))
+Description: A small, workshop-specific subset of the HEI mapping utilities used
+    to demonstrate how State of Global Air gridded maps are produced.
+License: file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 4.1)
+Imports:
+    dplyr,
+    ggplot2,
+    ggtext,
+    ggthemes,
+    sf,
+    terra,
+    tidyterra
