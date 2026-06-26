@@ -16,3 +16,6 @@ Imports:
     sf,
     terra,
     tidyterra
+Suggests:
+    usethis
+LazyData: true

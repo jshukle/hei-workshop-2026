@@ -68,4 +68,4 @@ if (file.exists(lockfile)) {
   )
 }
 
-message("Workshop setup complete. You can now run 02_pm25_gridded_map.R.")
+message("Workshop setup complete. You can now run 02_intro_to_mapping_with_ggplot_sf_terra.R.")
