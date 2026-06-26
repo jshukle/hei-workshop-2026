@@ -53,6 +53,10 @@ dir.create(output_directory, recursive = TRUE, showWarnings = FALSE)
 # This is the custom mapping function we bring it with HEIutilities package
 # It will do all the hard work for us behind the scenes and output multiple final images
 # We also use get_hei_palette() from HEIutilities to get some palettes that we want
+# ?create_hei_gridded
+# ?get_hei_palette
+# NOTE: adding roxygen documenation is perhaps one of the best uses of gen AI, there is no
+# excuse not to have fully documented functions these days. :)
 create_hei_gridded(
   gridded_data = map_data,
   max_global_cells = 5e6,
