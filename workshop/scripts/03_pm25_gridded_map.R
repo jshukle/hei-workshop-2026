@@ -35,7 +35,7 @@ pm25_clip <- terra::mask(pm25_crop, global_boundary)
 breaks <- c(0, 5, 10, 15, 25, 35, Inf)
 breaks_labels <- c(
   "≤ 5 (<WHO Guideline)",
-  "5-10 (<WHO IT-4)",
+  "5-10 (<WHO IT-4)", # techincally should be "5 to ≤ 10" but we simplify it
   "10-15 (<WHO IT-3)",
   "15-25 (<WHO IT-2)",
   "25-35 (<WHO IT-1)",
@@ -50,6 +50,9 @@ map_data <- terra::classify(pm25_clip, breaks, include.lowest = TRUE)
 output_directory <- "workshop/output/pm25/"
 dir.create(output_directory, recursive = TRUE, showWarnings = FALSE)
 
+# This is the custom mapping function we bring it with HEIutilities package
+# It will do all the hard work for us behind the scenes and output multiple final images
+# We also use get_hei_palette() from HEIutilities to get some palettes that we want
 create_hei_gridded(
   gridded_data = map_data,
   max_global_cells = 5e6,
@@ -79,6 +82,8 @@ create_hei_gridded(
   out_path = output_directory,
   out_file_name = "2023_pm25_gridded_cut",
   out_types = c("png", "jpg", "pdf"),
+  # below is the housekeeping and data documentation portion. We do this for ALL static plotting functions. 
+  # This lets other analysts compare what is plotted against raw data, say using QGIS, for accuracy checks.
   info_source = pm25_path,
   info_year = "2023",
   info_poll = "pm25",
