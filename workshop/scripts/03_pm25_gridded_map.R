@@ -53,10 +53,13 @@ dir.create(output_directory, recursive = TRUE, showWarnings = FALSE)
 # This is the custom mapping function we bring it with HEIutilities package
 # It will do all the hard work for us behind the scenes and output multiple final images
 # We also use get_hei_palette() from HEIutilities to get some palettes that we want
+
 # ?create_hei_gridded
 # ?get_hei_palette
+
 # NOTE: adding roxygen documenation is perhaps one of the best uses of gen AI, there is no
 # excuse not to have fully documented functions these days. :)
+
 create_hei_gridded(
   gridded_data = map_data,
   max_global_cells = 5e6,
@@ -93,3 +96,24 @@ create_hei_gridded(
   info_poll = "pm25",
   info_data = rast_minmax
 )
+
+# Why use this package-based workflow?
+#
+# - renv handles all version control, which makes it safer
+#   to reopen the project later (say years later!!) and rebuild the same map with the same tools,
+#   or with updated data.
+#
+# - The package keeps repeated mapping decisions in one reviewed function instead
+#   of copying and editing the same plotting code across many scripts.
+#
+# - HEIutilities bundles shared boundary data and palettes, so scripts are less
+#   dependent on one person's local folders or memory of which files/colors to use.
+#
+# - create_hei_gridded() writes multiple image formats from the same plot object,
+#   reducing the chance that PNG, JPG, and PDF outputs drift apart.
+#
+# - The metadata arguments create a companion text record of the source, year,
+#   pollutant, data range, and transformation used for the final image.
+#
+# - Overall, this is not just "less code"; it is a safer image pipeline because
+#   style, inputs, documentation, and outputs are handled consistently each time.
